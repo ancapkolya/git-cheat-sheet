@@ -70,9 +70,21 @@ git push -u origin master
 Служебный файл, хранящий ссылку на хеш последнего коммита. Можно использовать вместо хеша при запросах к коммандной строке
 
 ## Жизненный цикл файлов
+### Схема 1
+```mermaid
+graph LR;
+	untracked -- "git add" --> tracked
+	tracked -- "git rm" --> untracked
+```
+### Схема 2
 ```mermaid
 graph LR;
 	untracked -- "git add" --> staged
-	staged -- "Файл изменяется" --> modified
+	staged -- "Файл изменяется" --> "(2 копии)"
+	"(2 копии)" --> modified
+	"(2 копии)" --> staged
+	staged -- "git commit" --> tracked
+	tracked -- "Файл изменяется" --> modified
+	modified -- "git add" --> staged
 	staged -- "git commit" --> tracked
 ```
