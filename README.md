@@ -80,11 +80,11 @@ graph LR;
 ```mermaid
 graph LR;
 	untracked -- "git add" --> staged
-	staged -- "Файл изменяется" --> "(2 копии)"
-	"(2 копии)" --> modified
-	"(2 копии)" --> staged
+	staged -- "file change" --> copy
+	copy --> modified
+	copy --> staged
 	staged -- "git commit" --> tracked
-	tracked -- "Файл изменяется" --> modified
+	tracked -- "file change" --> modified
 	modified -- "git add" --> staged
 	staged -- "git commit" --> tracked
 ```
