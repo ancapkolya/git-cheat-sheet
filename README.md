@@ -87,3 +87,10 @@ graph LR;
 	tracked -- "file change" --> modified
 	modified -- "git add" --> staged
 ```
+
+## Изменение последнего коммита
+```
+git commit --amend --no-edit
+```
+Флаг `--no-edit` означает сохранение имени коммита, иначе можно указать имя стандартным способом
+
