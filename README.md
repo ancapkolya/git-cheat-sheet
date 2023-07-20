@@ -101,3 +101,13 @@ git commit --amend --no-edit
 `git restore <file>```
 ### ОПАСНО! Назначение HEAD коммита и удаление всех более поздних
 `git reset --hard <commit hash>`
+
+## Просмотр изменений
+для файлов в статусе modified:
+```
+git diff
+```
+для файлов в статусе staged:
+```
+git diff --staged
+```
